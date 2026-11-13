@@ -1,12 +1,12 @@
 %% =====================================================================
 %%  FACULTY APPLICATION PACKAGE
-%%  Cover Letter . Curriculum Vitae . Teaching Dossier . EDIA Statement
-%%  . References
+%%  Cover Letter . Curriculum Vitae . Research Statement . Teaching Dossier
+%%  . EDIA Statement . References
 %% =====================================================================
 %%
 %%  QUICK START
 %%    1. Open config.tex and enter your details and the position.
-%%    2. Edit the five files in the documents/ folder.
+%%    2. Edit the files in the documents/ folder.
 %%    3. Put your publications in publications.bib.
 %%    4. Recompile. Overleaf runs Biber and repeats the compile for you.
 %%
@@ -34,9 +34,12 @@
 %%  Uncomment ONE of these lines, recompile and download. Then comment it
 %%  out again. The cover page is skipped automatically. Page numbers
 %%  restart in every document, so each PDF reads "Page 1 of N".
+%%  Compile the full package once first. Separate PDFs take the CV's
+%%  publication labels (for \cite) and the enclosure list from that build.
 %% ---------------------------------------------------------------------
 % \includeonly{documents/cover-letter}
 % \includeonly{documents/cv}
+% \includeonly{documents/research-statement}
 % \includeonly{documents/teaching-dossier}
 % \includeonly{documents/edia-statement}
 % \includeonly{documents/references}
@@ -47,12 +50,14 @@
 
 \include{documents/cover-letter}
 \include{documents/cv}
+\include{documents/research-statement}
 \include{documents/teaching-dossier}
 \include{documents/edia-statement}
 \include{documents/references}
 
-% Need another document, e.g. a research statement? Copy
+% Need another document, e.g. a statement of service? Copy
 % documents/edia-statement.tex to a new file, change its title and
-% add an \include line here.
+% add an \include line here. Remove any line above you do not need.
+% Everything else (cover page, enclosure list) adjusts on its own.
 
 \end{document}

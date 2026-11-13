@@ -1,0 +1,200 @@
+%% =====================================================================
+%%  RESEARCH STATEMENT
+%% =====================================================================
+%%  \cite{key} prints the label your CV gives that publication, e.g.
+%%  [J5], and links to it. Several keys: \cite{key1,key2} -> [J5, C3].
+%%  Figures work as usual: \begin{figure} ... \caption{...} \end{figure}.
+%%  Replace the TikZ diagram below with \includegraphics if you prefer.
+%% =====================================================================
+\begin{applicationdocument}[
+  page limit = 4,
+  subtitle   = {Prepared for the position of \PositionSummary},
+]{Research Statement}
+
+\tip[What committees look for]{The research statement is where a
+committee judges your \emph{future} program: is it important, original,
+feasible and fundable, and does it fit here? Check the posting for length.
+Two to four pages is common; research-intensive posts sometimes allow five.
+Open with a vision a non-specialist can follow. Present past work as the
+foundation for what comes next, not as a history. Give most of the space to
+specific aims, first student projects and a funding plan.}
+
+Lakes and reservoirs supply drinking water to millions of Canadians, yet
+the harmful algal blooms that threaten them are becoming more frequent,
+more intense and harder to predict. Water managers need to know where and
+when a bloom will appear early enough to act: to adjust treatment, issue
+advisories or schedule sampling. My research asks a question at the heart
+of environmental data science: \textbf{how can we make environmental
+forecasts reliable when the future no longer resembles the past?} I answer
+it by combining process-based models, machine learning and
+community-collected data, and by building forecasts with the people who use
+them. At \Institution, my lab will develop forecasting methods that stay
+trustworthy under climate change and draw on community monitoring under
+community control. It will also test whether better forecasts lead to
+better decisions.
+
+\section{Research to Date}
+
+\textbf{Hybrid models that know some physics.} Purely data-driven models
+fail when conditions move outside their training data. Process-based
+models, for their part, are expensive to calibrate and miss biological feedbacks. In my
+doctoral work I designed process-guided neural networks that build the
+physics of lake mixing and heat transfer into their architecture
+\cite{ellis2025hybrid,ellis2022physics}. Across 18 lakes, these hybrid models
+forecast bloom onset ten days ahead with 35\% lower error than either model
+family alone. They kept that advantage in years warmer than any in their
+training data. I also developed training strategies for the sparse,
+irregular observations that are the norm in lake monitoring
+\cite{ellis2023sparse}.
+
+\textbf{Uncertainty that people can use.} A forecast is only useful if its
+uncertainty is honest. I showed that standard ensemble methods are
+overconfident for lake water quality. I then developed a calibration
+method that brings 90\% prediction intervals to their stated coverage in
+every season \cite{ellis2024uncertainty}. With my trainee Haruto Nakamura, I
+turned uncertainty into action. Sampling schedules that send field crews
+where forecasts are least certain detect the same number of blooms with
+30\% fewer site visits \cite{nakamura2024active}. Most recently, we developed
+tests that flag when a model has drifted outside the conditions it knows,
+for example during heatwaves and storms \cite{ellis2026shift}.
+
+\textbf{From research code to operational forecasts.} As a postdoctoral
+fellow I led the development of BloomCast, an open-source system that issues
+daily probabilistic forecasts for 42 lakes \cite{ellis2025bloomcast}. Two
+provincial agencies use it to plan sampling, which cut the median time to
+detect a bloom from nine days to three. With lake associations and a First
+Nation's water monitoring program, we showed that volunteer measurements
+improve forecasts at sparsely monitored lakes when their quality is modelled
+explicitly \cite{martin2025community}. These partnerships taught me that the
+hardest open problems are not only technical. They also concern who
+controls the data and how forecasts change decisions. Those questions shape
+the program I propose below.
+
+\section{Research Program at \Institution}
+
+\tip[Make the future concrete]{Committees weigh feasibility as heavily as
+ambition. For each aim, give the question, the approach, the first project
+a student could start in Year~1, and the expected outcome. A one-glance
+figure helps reviewers who skim. Connect each aim to the work above so
+your track record vouches for it.}
+
+My program for the next five to seven years has three connected aims
+(Figure~\ref{fig:program}). Each builds directly on my published work, and
+each begins with a project a student can start in my first year.
+
+\begin{figure}[htb]
+  \centering
+  \begin{tikzpicture}[
+      font=\sffamily\footnotesize,
+      aim/.style={draw=accent, line width=0.7pt, fill=accent!5,
+        rounded corners=3pt, text width=0.27\linewidth, inner sep=6pt,
+        align=left, anchor=north, minimum height=3.15cm,
+        execute at begin node={\hyphenpenalty=10000\exhyphenpenalty=10000}},
+      goal/.style={fill=accent, text=white, rounded corners=3pt,
+        inner sep=7pt, align=center, font=\sffamily\small\bfseries},
+      arrow/.style={-{Stealth[length=5pt]}, accent, line width=0.8pt},
+    ]
+    \node[aim] (a1) at (0,0) {%
+      {\color{accent}\bfseries AIM 1}\\
+      \textbf{Forecasting under change}\\[3pt]
+      Models that detect and adapt to conditions they have never seen.\\[3pt]
+      {\color{black!60}First project: shift-aware hybrid models (Ph.D.)}};
+    \node[aim] (a2) at (0.333\linewidth,0) {%
+      {\color{accent}\bfseries AIM 2}\\
+      \textbf{Community data, community control}\\[3pt]
+      Forecasts that learn from volunteer and Indigenous-led monitoring.\\[3pt]
+      {\color{black!60}First project: federated training with partners (M.Sc.)}};
+    \node[aim] (a3) at (0.666\linewidth,0) {%
+      {\color{accent}\bfseries AIM 3}\\
+      \textbf{Decision-ready forecasts}\\[3pt]
+      Field experiments on how forecasts change real decisions.\\[3pt]
+      {\color{black!60}First project: trials with conservation authorities (M.Sc.)}};
+    \node[goal, minimum width=0.946\linewidth] (goal)
+      at ([yshift=-0.85cm]a2.south)
+      {Reliable, equitable freshwater forecasts that people act on};
+    \foreach \n in {a1,a2,a3}
+      \draw[arrow] (\n.south) -- (\n.south |- goal.north);
+  \end{tikzpicture}
+  \caption{My research program at a glance. Each aim builds on published
+    work and starts with a student project in Year~1.}
+  \label{fig:program}
+\end{figure}
+
+\subsection{Aim 1: Forecasting under change}
+\emph{How can a forecasting model recognize conditions it has never seen,
+and adapt to them?} I will extend my shift-detection tests
+\cite{ellis2026shift} into models that adapt as new observations arrive,
+using process knowledge to keep their extrapolations physically plausible.
+Two resources will drive this work: the LakeBench benchmark of 120 lakes
+\cite{patel2026benchmark}, and the Westbrook Centre for Freshwater Futures'
+30-year record for the Westbrook River watershed. A Ph.D.\ student will
+begin with shift-aware hybrid models. The outcome will be forecasts that
+know when they do not know, released through BloomCast.
+
+\subsection{Aim 2: Community data under community control}
+\emph{How can forecasts learn from volunteer and Indigenous-led monitoring
+while the data stay with the people who collect them?} I will develop
+federated training methods, which let models learn from data that never
+leave the community's own systems. I will co-design them with partner
+communities under data agreements based on the First Nations principles of
+OCAP\textsuperscript{\textregistered}. A master's student co-supervised with
+a community partner will lead the first project. The outcome will be
+forecasts for lakes that no agency monitors, and a data-governance model
+other projects can adopt.
+
+\subsection{Aim 3: Decision-ready forecasts}
+\emph{Do better forecasts lead to better decisions, and which forecast
+products help most?} Building on our pilot experiment with water managers
+\cite{ellis2026decisions}, I will run randomized field trials with
+conservation authorities. I will also measure the value of forecasts in
+decision-theoretic terms: how much they improve the choices managers make.
+A master's student and two undergraduate researchers will start with
+sampling and advisory decisions. The outcome will be direct evidence of
+what makes a forecast useful, and products co-designed with the people who
+rely on them.
+
+In the longer term, these aims position my lab to coordinate a regional
+freshwater forecasting network. The same approach will extend from algal
+blooms to drought, road-salt contamination and other emerging threats to
+water quality.
+
+\section{Funding Plan}
+
+\begin{datatable}{@{} l X X @{}}
+  \colhead{When} & \colhead{Source} & \colhead{Supports}\\
+  \midrule\endhead
+  Year 1   & NSERC Discovery Grant, with Discovery Launch Supplement
+           & Aims 1--2: two graduate students, computing\\
+  Years 1--2 & NSERC Alliance, with provincial agencies and conservation
+               authorities (two partners have committed)
+           & Aim 3: field trials, partner-site sampling\\
+  Year 2   & CFI John R.\ Evans Leaders Fund, with provincial matching
+           & Real-time sensor network on Westbrook River lakes\\
+  Ongoing  & Mitacs Accelerate; NSERC Undergraduate Student Research Awards
+           & Internships with partners; paid undergraduate research\\
+  \bottomrule
+\end{datatable}
+
+My record supports this plan. I contributed the forecasting work package to
+a successful \$480{,}000 NSERC Alliance grant, I hold a \$25{,}000 seed grant
+as principal investigator, and I was ranked third of 41 applicants for my
+NSERC Postdoctoral Fellowship.
+
+\section{Training, Collaboration and Fit}
+
+By Year~3 I expect a lab of two Ph.D.\ students, two master's students and
+three or four undergraduate researchers. They will learn hybrid modelling,
+open and reproducible software, and partnered research. I will fund every
+position, including undergraduate ones, and set shared expectations through
+a written lab charter. \Institution is an ideal home for this program. The
+Westbrook Centre for Freshwater Futures offers field sites and long-term
+data. Dr.~Priya Raman's work on watershed hydrology would let us link river
+inflows to lake forecasts in Aim~1. Dr.~Tom\'as Ortega's work in aquatic
+ecology complements Aim~3. The \Faculty's data science computing cluster
+meets my computing needs. I will keep my existing collaborations with the
+University of Eastvale, the Nordic Lake Observatory and the agencies that
+use BloomCast. Together, these give my students a path from methods to
+real-world use, and give \Institution a forecasting program built to serve
+its region.
+
+\end{applicationdocument}

@@ -2,9 +2,9 @@
 %%  facultyapp.cls  --  A complete faculty application package for LaTeX
 %% =====================================================================
 %%
-%%  One class, one look, five documents:
-%%    Cover Letter . Curriculum Vitae . Teaching Dossier .
-%%    EDIA Statement . References
+%%  One class, one look, six documents:
+%%    Cover Letter . Curriculum Vitae . Research Statement .
+%%    Teaching Dossier . EDIA Statement . References
 %%
 %%  Features
 %%    * Enter your details and the target position ONCE (config.tex);
@@ -16,6 +16,8 @@
 %%    * Publications typeset straight from a .bib file: your name in bold,
 %%      trainee / equal-contribution / corresponding-author marks,
 %%      reverse numbering ([J12] ... [J1]), linked titles, awards.
+%%    * \cite{key} in any document prints the CV's label ([J5]) and
+%%      links to the entry in the CV.
 %%    * Teaching dossier helpers: key-number tiles, rating bars,
 %%      student quotations, data tables, local table of contents.
 %%    * Optional page limits per document with warnings.
@@ -165,11 +167,13 @@
 \RequirePackage{ragged2e}
 \RequirePackage{enumitem}
 \RequirePackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning}
 \RequirePackage{tcolorbox}
 \tcbuselibrary{skins,breakable,raster}
 \RequirePackage{fontawesome5}
 \RequirePackage{zref-user,zref-abspage}
 \RequirePackage{titlesec}
+\RequirePackage{caption}
 \RequirePackage{fancyhdr}
 \RequirePackage{etoc}
 
@@ -255,6 +259,10 @@ recipient,recipient title,salutation}
 \setlist[itemize,2]{label={\color{accent}\textendash}}
 \setlist[enumerate]{leftmargin=1.6em}
 
+% figure and table captions
+\DeclareCaptionFont{fa@accent}{\color{accent}}
+\captionsetup{font=small,labelfont={sf,bf,fa@accent},labelsep=period,skip=6pt}
+
 %% ---------------------------------------------------------------------
 %%  7. Section headings
 %% ---------------------------------------------------------------------
@@ -274,6 +282,18 @@ recipient,recipient title,salutation}
 \titlespacing*{\section}{0pt}{12pt plus 3pt minus 2pt}{4pt plus 1pt}
 \titlespacing*{\subsection}{0pt}{9pt plus 2pt minus 1pt}{1pt}
 \titlespacing*{\subsubsection}{0pt}{4pt plus 1pt}{0pt}
+
+% A heading needs room for a few lines below it; otherwise it starts a new
+% page. This keeps headings with the tables and boxes that follow them.
+\newcommand\fa@needspace[1]{%
+  \par
+  \begingroup
+    \setlength\dimen@{#1}%
+    \dimen@ii\pagegoal\advance\dimen@ii-\pagetotal
+    \ifdim\dimen@>\dimen@ii\ifdim\dimen@ii>\z@\vfil\fi\break\fi
+  \endgroup}
+\pretocmd{\section}{\fa@needspace{5\baselineskip}}{}{}
+\pretocmd{\subsection}{\fa@needspace{4\baselineskip}}{}{}
 
 %% ---------------------------------------------------------------------
 %%  8. Page styles
@@ -476,6 +496,8 @@ recipient,recipient title,salutation}
   \setcounter{page}{1}%
   \setcounter{section}{0}%
   \setcounter{footnote}{0}%
+  \setcounter{figure}{0}%
+  \setcounter{table}{0}%
   \gdef\thesection{\arabic{section}}%
   \setcounter{secnumdepth}{\iffa@doc@numbered 2\else 0\fi}%
   \iffa@doc@ragged\RaggedRight\fi
@@ -820,11 +842,12 @@ recipient,recipient title,salutation}
 \def\fa@pubprefix{}
 \def\fa@pubtotal{}
 \newcommand\fa@setpubtotal[2]{\global\@namedef{fa@pubtotal@#1}{#2}}
-\newcommand\fa@pubnumber{%
-  \ifdefstring{\fa@pubnumbering}{descending}
-    {\ifx\fa@pubtotal\@empty\the\c@fa@pubitem
-     \else\the\numexpr\fa@pubtotal-\c@fa@pubitem+1\relax\fi}%
-    {\the\c@fa@pubitem}}
+\def\fa@str@descending{descending}
+\newcommand*\fa@pubnumber{% expandable
+  \ifx\fa@pubnumbering\fa@str@descending
+    \ifx\fa@pubtotal\@empty\the\c@fa@pubitem
+    \else\the\numexpr\fa@pubtotal-\c@fa@pubitem+1\relax\fi
+  \else\the\c@fa@pubitem\fi}
 \newcommand\fa@publabel{%
   {\fa@labelfont
    \ifdefstring{\fa@pubnumbering}{none}{}{[\fa@pubprefix\fa@pubnumber]}}}
@@ -852,7 +875,35 @@ recipient,recipient title,salutation}
      \renewcommand*{\makelabel}[1]{##1\hfil}}%
    \RaggedRight\hyphenpenalty=3000\exhyphenpenalty=5000\emergencystretch=2.5em\relax}
   {\fa@pubfinish\endlist}
-  {\stepcounter{fa@pubitem}\item}
+  {\stepcounter{fa@pubitem}\item\fa@pubrecord}
+
+% remember each entry's CV label (for \cite) and give it a link target
+\newcommand\fa@setpublabel[2]{\global\@namedef{fa@publabel@#1}{#2}}
+\newcommand\fa@pubrecord{%
+  \edef\fa@tmp{\thefield{entrykey}}%
+  \ifcsname fa@pubanchor@\fa@tmp\endcsname\else
+    \global\@namedef{fa@pubanchor@\fa@tmp}{}%
+    \hypertarget{fapub:\fa@tmp}{}%
+    \immediate\write\@auxout{%
+      \string\fa@setpublabel{\fa@tmp}{\fa@pubprefix\fa@pubnumber}}%
+  \fi}
+
+% \cite{key1,key2} -> [J5, C3], linked to the CV entries
+\newcommand\fa@citelabel{%
+  \edef\fa@tmp{\thefield{entrykey}}%
+  \ifcsname fa@publabel@\fa@tmp\endcsname
+    {\hypersetup{linkcolor=accent}%
+     \hyperlink{fapub:\fa@tmp}{\csname fa@publabel@\fa@tmp\endcsname}}%
+  \else
+    \textbf{??}%
+    \G@refundefinedtrue
+    \@latex@warning{Publication `\fa@tmp' has no CV label yet.\MessageBreak
+      Rerun, or make sure a \string\publist\space shows it}%
+  \fi}
+\DeclareCiteCommand{\cite}[\mkbibbrackets]
+  {\usebibmacro{prenote}}{\fa@citelabel}{\addcomma\space}{\usebibmacro{postnote}}
+\DeclareCiteCommand{\parencite}[\mkbibbrackets]
+  {\usebibmacro{prenote}}{\fa@citelabel}{\addcomma\space}{\usebibmacro{postnote}}
 
 \newcommand\publist[3][]{%
   \stepcounter{fa@publist}%
@@ -913,6 +964,7 @@ recipient,recipient title,salutation}
 \newcommand\colhead[1]{\leavevmode{\sffamily\bfseries\footnotesize\color{fa@muted}#1}}
 \newenvironment{datatable}[1]{%
   \par\small
+  \renewcommand\tabularxcolumn[1]{>{\RaggedRight\arraybackslash}p{##1}}%
   \setlength\tabcolsep{5pt}%
   \renewcommand\arraystretch{1.3}%
   \setlength\LTpre{3pt}\setlength\LTpost{3pt}%
@@ -1004,7 +1056,8 @@ name,title,department,institution,address,email,phone,relationship,note}
                    \fa@ifpos{institution}{, \fa@pos{institution}}{}},
     pdfsubject  = {Faculty application},
     pdfkeywords = {faculty application, cover letter, curriculum vitae,
-                   teaching dossier, EDIA statement, references},
+                   research statement, teaching dossier, EDIA statement,
+                   references},
     pdfcreator  = {LaTeX with facultyapp.cls},
   }}
 % language tag for screen readers and other assistive technology
