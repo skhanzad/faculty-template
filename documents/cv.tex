@@ -1,0 +1,169 @@
+%% =====================================================================
+%%  CURRICULUM VITAE
+%% =====================================================================
+%%  Building blocks
+%%    \cventry{dates}{title}{organisation}{location or amount}{details}
+%%        -> entry with dates on the right (any argument may be empty)
+%%    \cvitem{label}{text}
+%%        -> label (usually a year) in a narrow left column
+%%    \cvnote{text}
+%%        -> small grey note, e.g. under a heading
+%%    \publist[prefix]{heading}{filters}
+%%        -> publications from publications.bib (see the Publications section)
+%%  Use ordinary itemize lists inside entries if you need bullets.
+%% =====================================================================
+\begin{applicationdocument}[
+  subtitle = {Last updated \today},
+  % page limit = 6,
+]{Curriculum Vitae}
+
+\tip[Conventions committees expect]{Use reverse chronological order
+within each section, and order the sections by what matters most for this
+post. Committees skim, so keep dates, roles and amounts where the eye
+expects them. In North America leave out photographs, date of birth and
+marital status. Canadian committees usually expect funding amounts with
+your role, and a section on supervision of trainees (``HQP'').}
+
+\section{Education}
+\cventry{2019--2024}{Ph.D., Environmental Science}{University of Eastvale}{Eastvale, ON}
+  {Dissertation: \emph{Hybrid process-guided machine learning for forecasting
+  harmful algal blooms}. Supervisor: Prof.~Sara Lindqvist.}
+\cventry{2017--2019}{M.Sc., Applied Statistics}{University of Eastvale}{Eastvale, ON}
+  {Thesis: \emph{Bayesian state-space models for lake temperature}.}
+\cventry{2013--2017}{B.Sc.\ (Honours), Environmental Science, with distinction}
+  {Coastal University}{Halifax, NS}{}
+
+\section{Academic Appointments}
+\cventry{2024--present}{NSERC Postdoctoral Fellow}
+  {Department of Civil \& Environmental Engineering,
+   Northbridge Institute of Technology}{Northbridge, ON}
+  {Host: Prof.~Kwame Mensah. Lead developer of the BloomCast forecasting system.}
+\cventry{2023}{Visiting Researcher}{Nordic Lake Observatory}{Uppsala, Sweden}
+  {Four-month research visit funded by a Mitacs Globalink Research Award.}
+
+\section{Honours and Awards}
+\cvitem{2025}{Best Applied Paper Award, Workshop on Machine Learning for
+  Environmental Systems}
+\cvitem{2025}{Editor's Choice, \emph{Journal of Freshwater Informatics}}
+\cvitem{2024}{Dean's Medal for an Outstanding Doctoral Dissertation,
+  University of Eastvale}
+\cvitem{2022}{Graduate Teaching Assistant Award, Faculty of Environment,
+  University of Eastvale}
+
+\section{Research Funding}
+\cvnote{Amounts in Canadian dollars; my role is given below each award.}
+\cventry{2025--2028}{NSERC Alliance Grant: \emph{Operational forecasting of
+  harmful algal blooms}}{Natural Sciences and Engineering Research Council}{\$480,000}
+  {Collaborator (PI: Prof.~K.~Mensah); wrote the forecasting work package.}
+\cventry{2025--2026}{Seed Grant in Data Science: \emph{Community data for
+  lake forecasts}}{Northbridge Institute of Technology}{\$25,000}
+  {Principal investigator.}
+\cventry{2024--2026}{NSERC Postdoctoral Fellowship}
+  {Natural Sciences and Engineering Research Council}{\$90,000}
+  {Sole applicant; ranked 3rd of 41 in the selection committee.}
+\cventry{2019--2022}{NSERC Canada Graduate Scholarship -- Doctoral}
+  {Natural Sciences and Engineering Research Council}{\$105,000}{Sole applicant.}
+\cventry{2023}{Mitacs Globalink Research Award}{Mitacs}{\$6,000}{Sole applicant.}
+
+\section{Publications}
+\publicationlegend
+\nocite{*}% list every entry in publications.bib
+
+\tip[Publications are automatic]{This section is generated from
+\texttt{publications.bib}: newest first, numbered in reverse so that the
+highest number shows your count, with your name in bold. Mark trainees and
+equal contributions in the \texttt{.bib} file (see the notes at its top).
+Choose the categories with filters such as \texttt{type=article},
+\texttt{keyword=preprint} or \texttt{notkeyword=preprint}. Empty
+categories disappear.}
+
+\publist[J]{Peer-reviewed journal articles}{type=article,notkeyword=preprint}
+\publist[C]{Refereed conference papers}{type=inproceedings}
+\publist[B]{Book chapters}{type=incollection}
+\publist[P]{Preprints and manuscripts under review}{keyword=preprint}
+
+\section{Invited Talks}
+\cvitem{2026}{\emph{Forecasting lakes when the past is no guide.} Department of
+  Geography Seminar, University of Southridge (online).}
+\cvitem{2025}{\emph{BloomCast: from research code to an operational forecast.}
+  Provincial Water Monitoring Network, Annual Meeting, Toronto, ON.}
+\cvitem{2024}{\emph{Hybrid models for harmful algal blooms.} Nordic Lake
+  Observatory Seminar Series, Uppsala, Sweden.}
+
+\section{Selected Conference Presentations}
+\cvitem{2025}{\textbf{Ellis, J.\,A.}, Patel, R.\textsuperscript{\textdagger}
+  \emph{Forecasts people use: lessons from two years of BloomCast.}
+  Oral presentation, International Lake Forecasting Symposium, Kingston, ON.}
+\cvitem{2024}{Nakamura, H.\textsuperscript{\textdagger}, \textbf{Ellis, J.\,A.}
+  \emph{Where to sample next? Uncertainty-guided monitoring.} Poster,
+  Conference on Environmental Informatics, Vancouver, BC.}
+\cvitem{2023}{\textbf{Ellis, J.\,A.}, Lindqvist, S. \emph{Ten-day bloom
+  forecasts with hybrid models.} Oral presentation, International Lake
+  Forecasting Symposium, Uppsala, Sweden.}
+
+\section{Teaching}
+\cvnote{Details and evidence of effectiveness are in my Teaching Dossier.}
+\cventry{Fall 2025}{Co-instructor, CIVE 345: Water Quality Engineering}
+  {Northbridge Institute of Technology}{54 students}{}
+\cventry{Winter 2023}{Instructor of record, ENVS 220: Introduction to
+  Environmental Data Analysis}{University of Eastvale}{86 students}
+  {Redesigned the course around real datasets and universal design for
+  learning; instructor rating 4.6/5 (department mean 4.1).}
+\cventry{2019--2022}{Teaching assistant, four courses over six terms}
+  {University of Eastvale}{312 students}
+  {ENVS 101 Earth Systems; ENVS 230 Hydrology; STAT 240 Applied Regression;
+  ENVS 410 Field Methods.}
+\cventry{2021--2023}{Workshop lead, \emph{Reproducible Research with R and Git}}
+  {School of Graduate Studies, University of Eastvale}{120 participants}{}
+
+\section{Supervision and Mentorship}
+\cvnote{\textsuperscript{\textdagger}\,Trainee who has co-authored a
+publication with me.}
+\cvitem{2024--}{Haruto Nakamura\textsuperscript{\textdagger}, M.Sc.\ student,
+  Northbridge (co-supervised with Prof.~K.~Mensah).}
+\cvitem{2025--}{Chidi Okonkwo\textsuperscript{\textdagger}, M.A.Sc.\ student,
+  Northbridge (co-mentor on decision-support research).}
+\cvitem{2025}{Riya Patel\textsuperscript{\textdagger}, NSERC Undergraduate
+  Student Research Award holder; now a Ph.D.\ student at Coastal University.}
+\cvitem{2023}{\'Emilie Gagnon\textsuperscript{\textdagger}, undergraduate
+  research assistant, Eastvale.}
+\cvitem{2022--2023}{Wei Chen\textsuperscript{\textdagger}, undergraduate
+  honours thesis, Eastvale; now a data scientist at a provincial agency.}
+\cvitem{2020--2025}{Nine further undergraduate researchers, six of them
+  through the Pathways summer programme (see Service).}
+
+\section{Service}
+\subsection{Professional}
+\cvitem{2022--}{Peer reviewer for seven journals (31 reviews), including the
+  \emph{Journal of Freshwater Informatics} and \emph{Water Forecasting Review}.}
+\cvitem{2025}{Programme committee, Workshop on Machine Learning for
+  Environmental Systems.}
+\cvitem{2024}{Session co-organiser, \emph{Forecasting Freshwater Ecosystems},
+  International Lake Forecasting Symposium.}
+\subsection{Institutional}
+\cvitem{2024--}{Postdoctoral representative, Equity, Diversity and Inclusion
+  Committee, Faculty of Engineering, Northbridge.}
+\cvitem{2021--2023}{Co-founder and coordinator, \emph{Pathways in
+  Environmental Data Science} paid summer research programme, Eastvale.}
+\cvitem{2020--2022}{Graduate representative, Curriculum Committee,
+  Department of Environmental Science, Eastvale.}
+
+\section{Outreach and Knowledge Mobilisation}
+\cvitem{2025}{\emph{Will my lake bloom this summer?} Public talks for five lake
+  associations (about 300 attendees).}
+\cvitem{2024}{Interview on algal bloom forecasting, provincial public radio.}
+\cvitem{2022--}{Certified instructor, The Carpentries (four workshops taught).}
+
+\section{Software and Data}
+\cvitem{2024}{\textbf{BloomCast}: open-source forecasting system (Python) issuing
+  daily probabilistic forecasts for 42 lakes; used by two provincial agencies.
+  \url{https://example.org/bloomcast}}
+\cvitem{2026}{\textbf{LakeBench}: open benchmark of 120 Canadian lakes for
+  water-quality forecasting (CC BY 4.0).}
+
+\section{Memberships and Languages}
+\cvitem{}{International Society of Limnology; Canadian Water Resources
+  Association; The Carpentries.}
+\cvitem{}{English (native); French (professional working proficiency).}
+
+\end{applicationdocument}

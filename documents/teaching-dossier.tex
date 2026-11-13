@@ -1,0 +1,263 @@
+%% =====================================================================
+%%  TEACHING DOSSIER
+%% =====================================================================
+%%  Options
+%%    contents  -> table of contents for this document only
+%%    contents depth = subsection  -> include subsections in it
+%%    numbered  -> numbered sections (lettered after \appendix)
+%%  Building blocks
+%%    \begin{keystats}[4] \keystat{number}{label} ... \end{keystats}
+%%    \ratingbar[comparison]{score}{maximum}      \ratinglegend
+%%    \studentquote[source]{quotation}
+%%    \begin{datatable}{column spec} ... \end{datatable}   \colhead{...}
+%%        (X columns stretch; tables may break across pages)
+%% =====================================================================
+\begin{applicationdocument}[
+  contents,
+  numbered,
+  subtitle = {Prepared for the position of \PositionSummary},
+]{Teaching Dossier}
+
+\tip[What a dossier is for]{A teaching dossier (called a teaching
+portfolio outside Canada) pairs a reflective narrative with
+\emph{evidence}. The Canadian Association of University Teachers' guide
+to the teaching dossier, which most Canadian universities build on, is the
+standard reference. Keep the main body to roughly 5--8 pages and move raw
+material to appendices. If the posting asks only for a one- or two-page
+``teaching statement'', send Section~\ref{sec:philosophy} alone.}
+
+\section{Teaching Philosophy}\label{sec:philosophy}
+
+I teach environmental data science because I have watched it change how
+students see the world. A student who has cleaned a decade of messy lake
+records and found the warming signal hidden in them never again reads a
+climate headline the same way. My goal is for every student, whatever their
+mathematical background, to leave my courses able to ask a question of
+real environmental data, answer it honestly, and explain the
+uncertainty in their answer. Three principles guide how I pursue that goal.
+
+\subsection{Learning by doing, with real data}
+Students learn data analysis by analysing data, not by watching me do it.
+In ENVS~220 I replaced two of three weekly lectures with studio sessions in
+which teams work through real monitoring datasets, including records from
+lakes near campus. Real data are messy. Missing values, sensor drift and
+competing hypotheses are not distractions from the content; they \emph{are}
+the content. On the end-of-term survey, 89\% of students agreed that the
+course ``prepared me to analyse data on my own'', up from 61\% the year
+before the redesign.
+
+\subsection{Structure that includes everyone}
+Inequities in prior preparation are largest in quantitative courses, and an
+unstructured course quietly rewards students who already know the hidden
+rules. I make expectations explicit by applying universal design for
+learning and the transparent assignment framework. Every assignment states
+its purpose, its task and its marking criteria. Students
+receive worked examples and can choose how to present parts of their
+work. A flexible ``token'' system lets anyone extend two deadlines without
+explanation. These changes cost academic rigour nothing: the final project rubric
+became more demanding. Yet the share of students who withdrew or failed fell
+from 18\% to 9\%.
+
+\tip[Make the philosophy specific]{For each belief, give one classroom
+example and its result. Committees remember concrete scenes (``I replaced
+two lectures with studios'') far better than abstractions (``I am
+passionate about student-centred learning'').}
+
+\subsection{Feedback that flows both ways}
+I give students frequent, low-stakes feedback: weekly auto-graded checks
+and short in-class problems discussed in pairs. I ask for the same in
+return. A three-question mid-term survey (\emph{What helps? What hinders?
+What would you change?}) has led to concrete changes. For example, after
+students asked for them, I added recorded walkthroughs of the hardest
+code. I tell the class what I changed and why, which models the
+reflective practice I hope they will adopt.
+
+\section{Teaching Responsibilities}
+
+\begin{datatable}{@{} l X l r @{}}
+  \colhead{Term} & \colhead{Course} & \colhead{Role} & \colhead{Students}\\
+  \midrule\endhead
+  Fall 2025   & CIVE 345 Water Quality Engineering (3rd year), Northbridge
+              & Co-instructor & 54\\
+  Winter 2023 & ENVS 220 Introduction to Environmental Data Analysis
+                (2nd year), Eastvale & Instructor of record & 86\\
+  2019--2022  & ENVS 101 Earth Systems (1st year; three terms), Eastvale
+              & Teaching assistant & 168\\
+  Fall 2020   & ENVS 230 Hydrology (2nd year), Eastvale & Teaching assistant & 52\\
+  Winter 2021 & STAT 240 Applied Regression (2nd year), Eastvale
+              & Teaching assistant & 61\\
+  Fall 2021   & ENVS 410 Field Methods (4th year), Eastvale
+              & Teaching assistant & 31\\
+  2021--2023  & Reproducible Research with R and Git (graduate workshop
+                series, 6 sessions/year) & Designer and lead & 120\\
+  \bottomrule
+\end{datatable}
+
+\section{Course Design and Curriculum Development}
+
+\subsection{Redesign of ENVS 220, Introduction to Environmental Data Analysis}
+I rebuilt this required second-year course around four authentic projects
+drawn from regional monitoring programmes. I wrote 24 new studio
+activities as accessible, captioned notebooks that run in the browser,
+so students need neither a powerful laptop nor software installation. The
+department has kept the redesign; two instructors have taught it since.
+
+\subsection{Graduate workshop series}
+I designed and led \emph{Reproducible Research with R and Git}, six
+hands-on sessions offered each year through the School of Graduate Studies
+and attended by 120 students from eleven departments. Materials are openly
+licensed and have been adopted by two other institutions.
+
+\subsection{Open educational resource}
+I am writing \emph{Environmental Data Analysis in R}, a free online textbook
+(CC~BY~4.0) with 14 chapters and embedded exercises. Seven chapters are
+complete, and ENVS~220 and CIVE~345 already use them.
+
+\section{Evidence of Teaching Effectiveness}
+
+\begin{keystats}[4]
+  \keystat{450+}{students taught}
+  \keystat{4.6\,/\,5}{instructor rating, ENVS 220}
+  \keystat{18\%\,\textrightarrow\,9\%}{withdraw-or-fail rate after redesign}
+  \keystat{14}{student researchers mentored}
+\end{keystats}
+
+\tip[Triangulate your evidence]{Combine student ratings with peer
+observation and with evidence of student learning (grades, products,
+outcomes). Give response rates and comparison means so readers can
+interpret the numbers. Quote student comments selectively but faithfully,
+and never identify students.}
+
+\subsection{Student evaluations}
+The table summarises the overall item ``The instructor was effective in
+helping me learn'' (5-point scale). Item-level results are in
+Appendix~\ref{app:evaluations}.
+
+\begin{datatable}{@{} l X r l @{}}
+  \colhead{Term} & \colhead{Course and role} & \colhead{Responses}
+    & \colhead{My rating vs.\ comparison mean}\\
+  \midrule\endhead
+  F2025 & CIVE 345, co-instructor   & 39/54 (72\%) & \ratingbar[4.0]{4.5}{5}\\
+  W2023 & ENVS 220, instructor      & 61/86 (71\%) & \ratingbar[4.1]{4.6}{5}\\
+  F2021 & ENVS 410, TA              & 22/31 (71\%) & \ratingbar[4.3]{4.8}{5}\\
+  W2021 & STAT 240, TA              & 40/61 (66\%) & \ratingbar[4.0]{4.5}{5}\\
+  F2020 & ENVS 101, TA              & 47/58 (81\%) & \ratingbar[4.3]{4.7}{5}\\
+  \bottomrule
+\end{datatable}
+\ratinglegend
+
+\subsection{What students say}
+\studentquote[ENVS 220, Winter 2023]{I came in terrified of coding and left
+having built a model of a real lake. The studios made it feel possible, and
+the token system meant one bad week did not sink me.}
+\studentquote[CIVE 345, Fall 2025]{Dr.\ Ellis explains \emph{why} a method
+works before showing how, and always connects it to a decision someone has
+to make.}
+\studentquote[ENVS 101, Fall 2020]{The best TA I have had. Feedback on our
+lab reports was detailed and actually helped me improve.}
+
+\subsection{Peer observation}
+In March 2023, Dr.~Helen Ward of the Eastvale Centre for Teaching
+Excellence observed two ENVS~220 sessions. Her report notes ``exceptionally
+clear scaffolding'' and ``near-universal engagement during studio work''.
+It also recommended more structured closure at the end of each studio, a
+suggestion I now apply through a five-minute ``one thing I learned'' wrap-up.
+
+\subsection{Student learning}
+In the redesigned ENVS~220, the median final-project grade rose from 71\%
+to 78\% under a more demanding rubric. The gap in final grades between
+first-generation and continuing-generation students narrowed from 9 to 3
+percentage points.
+
+\section{Supervision and Mentorship}
+
+I have mentored fourteen student researchers, from first-year summer
+students to master's students; five are co-authors on peer-reviewed
+publications. I pay undergraduate researchers rather than relying on
+volunteers, so that research experience is open to students who must
+work. Each mentee and I write a short mentoring plan at the start, and we
+revisit it every term.
+
+\begin{datatable}{@{} l X l @{}}
+  \colhead{Years} & \colhead{Trainee and project} & \colhead{Outcome}\\
+  \midrule\endhead
+  2024--    & H.~Nakamura, M.Sc.: uncertainty-guided lake sampling & 1 paper, 1 talk\\
+  2025--    & C.~Okonkwo, M.A.Sc.: forecasts and management decisions & 1 paper (under review)\\
+  2025      & R.~Patel, NSERC USRA: LakeBench benchmark dataset & 2 papers; now Ph.D.\\
+  2022--23  & W.~Chen, honours thesis: hybrid bloom models & 1 paper; now in industry\\
+  2023      & \'E.~Gagnon, research assistant: volunteer monitoring data & 1 paper\\
+  2020--25  & Nine further undergraduate researchers & 4 posters\\
+  \bottomrule
+\end{datatable}
+
+\section{Professional Development in Teaching}
+\cventry{2024}{Course Design Institute (5 days)}{Centre for Teaching and
+  Learning, Northbridge Institute of Technology}{}{}
+\cventry{2022}{Certificate in University Teaching (120 hours)}{Centre for
+  Teaching Excellence, University of Eastvale}{}
+  {Included a supervised teaching practicum and a project on inclusive
+  assessment.}
+\cventry{2021}{Instructor training}{The Carpentries}{}{}
+\cventry{2020--2025}{Workshops on universal design for learning, inclusive
+  assessment and Indigenous cultural safety}{}{}{}
+
+\section{Teaching at \Institution: Goals and Contributions}
+
+I am ready to teach existing courses in quantitative methods, hydrology
+and environmental data analysis. I would also like to develop:
+\begin{itemize}
+  \item an upper-year course, \emph{Machine Learning for Environmental
+        Systems}, built around projects with local partners, which would
+        serve the new minor in Environmental Data Science;
+  \item a graduate course, \emph{Environmental Forecasting}, covering
+        process-based, statistical and hybrid forecasting with a strong
+        focus on uncertainty.
+\end{itemize}
+Over my first five years, I aim to complete and publish the open textbook,
+to measure the effect of studio-based teaching on student learning, and to
+share what works through the \Faculty's teaching community.
+
+\appendix
+
+\section{Detailed Student Evaluation Results}\label{app:evaluations}
+ENVS~220, Winter 2023 (61 of 86 students responded; scale 1--5).
+
+\begin{datatable}{@{} X l @{}}
+  \colhead{Item} & \colhead{My rating vs.\ department mean}\\
+  \midrule\endhead
+  The instructor explained concepts clearly.          & \ratingbar[4.0]{4.5}{5}\\
+  The course was well organised.                      & \ratingbar[4.0]{4.7}{5}\\
+  Assignments helped me learn.                        & \ratingbar[3.9]{4.6}{5}\\
+  The instructor treated students with respect.       & \ratingbar[4.4]{4.9}{5}\\
+  Feedback was timely and useful.                     & \ratingbar[3.8]{4.4}{5}\\
+  Overall, the instructor was effective.              & \ratingbar[4.1]{4.6}{5}\\
+  \bottomrule
+\end{datatable}
+
+\section{Sample Syllabus Excerpt: ENVS 220}
+\textbf{Learning outcomes.} By the end of the course, students will be
+able to:
+\begin{enumerate}
+  \item import, clean and document a real environmental dataset;
+  \item choose and justify an appropriate statistical model;
+  \item quantify and communicate uncertainty for a non-specialist audience;
+  \item conduct an analysis that another person can reproduce.
+\end{enumerate}
+
+\begin{datatable}{@{} X r @{}}
+  \colhead{Assessment} & \colhead{Weight}\\
+  \midrule\endhead
+  Weekly studio check-ins (best 10 of 12)                    & 15\%\\
+  Four projects with real monitoring data                    & 50\%\\
+  Peer review of a classmate's project                       & 10\%\\
+  Final project: report and three-minute public explainer    & 25\%\\
+  \bottomrule
+\end{datatable}
+
+\section{Supporting Documents}
+The following are available on request: complete student evaluation
+reports, the full peer observation report, a letter from the chair of the
+Department of Environmental Science at Eastvale about the ENVS~220
+redesign, and the full course materials.
+
+\end{applicationdocument}

@@ -1,0 +1,24 @@
+Faculty Application Package: licensing
+==================================================
+
+1. facultyapp.cls
+
+   This work may be distributed and/or modified under the conditions of
+   the LaTeX Project Public License, either version 1.3c of this license
+   or (at your option) any later version. The latest version of this
+   license is at https://www.latex-project.org/lppl.txt
+
+   This work has the LPPL maintenance status `maintained'.
+
+2. All other files: main.tex, config.tex, publications.bib, everything
+   in documents/, and README.md
+
+   CC0 1.0 Universal (public domain dedication):
+   https://creativecommons.org/publicdomain/zero/1.0/
+
+   Use, adapt and submit them in your own applications without
+   attribution.
+
+The applicant, institutions, people, publications, venues and DOIs in
+the sample content are fictional. Any resemblance to real persons or
+works is coincidental.

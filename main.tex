@@ -1,0 +1,58 @@
+%% =====================================================================
+%%  FACULTY APPLICATION PACKAGE
+%%  Cover Letter . Curriculum Vitae . Teaching Dossier . EDIA Statement
+%%  . References
+%% =====================================================================
+%%
+%%  QUICK START
+%%    1. Open config.tex and enter your details and the position.
+%%    2. Edit the five files in the documents/ folder.
+%%    3. Put your publications in publications.bib.
+%%    4. Recompile. Overleaf runs Biber and repeats the compile for you.
+%%
+%%  Delete the `tips' option below to hide the writing tips (the red
+%%  boxes) before you submit.
+%% =====================================================================
+
+\documentclass[
+  letterpaper,          % letterpaper (North America) | a4paper
+  11pt,                 % 10pt | 11pt | 12pt
+  font   = charter,     % charter | libertinus | palatino | sourcesans | lmodern
+  accent = navy,        % navy | teal | burgundy | forest | slate | plum | ochre
+                        % | black, or any xcolor colour, e.g. accent=blue!60!black
+  header = split,       % split | centered  (letterhead layout)
+  language = english,   % any babel language, e.g. canadian, british, french
+  tips,                 % show writing tips in the PDF. DELETE before you submit
+]{facultyapp}
+
+\input{config}                      % <- your details and the position
+\addbibresource{publications.bib}   % <- your publications (used in the CV)
+
+%% ---------------------------------------------------------------------
+%%  SEPARATE PDFs
+%%  Many hiring portals ask for each document as its own upload.
+%%  Uncomment ONE of these lines, recompile and download. Then comment it
+%%  out again. The cover page is skipped automatically. Page numbers
+%%  restart in every document, so each PDF reads "Page 1 of N".
+%% ---------------------------------------------------------------------
+% \includeonly{documents/cover-letter}
+% \includeonly{documents/cv}
+% \includeonly{documents/teaching-dossier}
+% \includeonly{documents/edia-statement}
+% \includeonly{documents/references}
+
+\begin{document}
+
+\makecoverpage    % cover page with linked contents (remove if not wanted)
+
+\include{documents/cover-letter}
+\include{documents/cv}
+\include{documents/teaching-dossier}
+\include{documents/edia-statement}
+\include{documents/references}
+
+% Need another document, e.g. a research statement? Copy
+% documents/edia-statement.tex to a new file, change its title and
+% add an \include line here.
+
+\end{document}

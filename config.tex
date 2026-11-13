@@ -1,0 +1,62 @@
+%% =====================================================================
+%%  config.tex: YOUR DETAILS AND THE POSITION
+%% =====================================================================
+%%  Everything here is entered once and reused across all documents.
+%%  Leave a field empty (or delete the line) to hide it.
+%%  Special characters need a backslash: \& \% \_ \#
+%% =====================================================================
+
+%% --- You ---------------------------------------------------------------
+\applicant{
+  name        = {Jordan A. Ellis},
+  credentials = {PhD},
+  pronouns    = {they/them},                 % optional
+  position    = {NSERC Postdoctoral Fellow},  % your current role
+  department  = {Department of Civil \& Environmental Engineering},
+  institution = {Northbridge Institute of Technology},
+  email       = {jordan.ellis@example.org},
+  phone       = {+1 (555) 010-2034},
+  website     = {jordanellis.example.org},
+  orcid       = {0000-0002-1825-0097},
+  % scholar   = {https://scholar.google.com/citations?user=XXXXXXXX},
+  % github    = {your-username},
+  % linkedin  = {your-profile},
+  % address   = {123 Main Street, City, Province},
+  % signature = {images/signature.png},      % optional, for the cover letter
+}
+
+%% --- The position you are applying for ---------------------------------
+%%  Change this block for each application. Your letter and statements
+%%  pick up these values through the commands listed below.
+\position{
+  title           = {Assistant Professor},
+  field           = {Environmental Data Science},
+  department      = {Department of Earth and Environmental Sciences},
+  faculty         = {Faculty of Science},
+  institution     = {University of Westbrook},
+  address         = {1200 College Avenue \\ Westbrook, Ontario, Canada},
+  reference       = {FS-2026-041},
+  recipient       = {Professor Maya Okafor},
+  recipient title = {Chair, Faculty Search Committee},
+  salutation      = {Dear Professor Okafor and Members of the Search Committee,},
+}
+%%  Use these anywhere in your documents:
+%%    \ApplicantName  \PositionTitle  \PositionField  \Department  \Faculty
+%%    \Institution    \JobReference   \Recipient      \PositionSummary
+
+%% --- Publications --------------------------------------------------------
+%%  Your name is printed in bold in the CV's publication lists. List
+%%  every spelling used in publications.bib as {Family}{Given}. Leave
+%%  Given empty to match the family name alone.
+\highlightauthor{Ellis}{Jordan A.}
+\highlightauthor{Ellis}{J. A.}
+
+%% --- Optional fine-tuning ------------------------------------------------
+%  \facultyappsetup{
+%    accent = teal,                         % change the colour here too
+%    margin = 2.5cm,                        % default 2.2cm
+%    cv label width = 2.4cm,                % year/label column in the CV
+%    publication numbering = ascending,     % descending | ascending | none
+%  }
+%  \renewcommand\facultyappPageName{Page}   % translate built-in words
+%  \renewcommand\facultyappOfName{of}
