@@ -147,6 +147,10 @@ keywords  = {preprint},             % for keyword=preprint filters
 - **Special characters.** Escape `& % _ #` as `\& \% \_ \#`.
 - **Engines.** pdfLaTeX (Overleaf's default), XeLaTeX and LuaLaTeX all work.
 
+## Author
+
+Sourena Khanzadeh
+
 ## License
 
 `facultyapp.cls` is released under the LaTeX Project Public License 1.3c.

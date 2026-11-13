@@ -3,12 +3,15 @@ Faculty Application Package: licensing
 
 1. facultyapp.cls
 
+   Copyright (c) 2026 Sourena Khanzadeh
+
    This work may be distributed and/or modified under the conditions of
    the LaTeX Project Public License, either version 1.3c of this license
    or (at your option) any later version. The latest version of this
    license is at https://www.latex-project.org/lppl.txt
 
    This work has the LPPL maintenance status `maintained'.
+   The Current Maintainer of this work is Sourena Khanzadeh.
 
 2. All other files: main.tex, config.tex, publications.bib, everything
    in documents/, and README.md

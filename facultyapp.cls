@@ -26,6 +26,9 @@
 %%
 %%  Works with pdfLaTeX (Overleaf default), XeLaTeX and LuaLaTeX + Biber.
 %%
+%%  Author: Sourena Khanzadeh
+%%  Copyright (c) 2026 Sourena Khanzadeh
+%%
 %%  This work may be distributed and/or modified under the conditions of
 %%  the LaTeX Project Public License, version 1.3c or later:
 %%  https://www.latex-project.org/lppl.txt
